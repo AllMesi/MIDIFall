@@ -176,7 +176,7 @@ class "NotesComponent" {
 							-- if false then
 								
 								if self.useDefaultTheme then
-									love.graphics.rectangle("fill", noteX+noteCulledWidth,noteY+(note:getChannel() == pbC and pbShift or 0), math.max(noteWidth-noteCulledWidth, 0),noteHeight)
+									love.graphics.rectangle("fill", noteX+noteCulledWidth,noteY+pbShift, math.max(noteWidth-noteCulledWidth, 0),noteHeight)
 									if self.noteOutlines then
 										local r, g, b, a = love.graphics.getColor()
 										love.graphics.setColor(r/2,g/2,b/2,a)
@@ -193,7 +193,7 @@ class "NotesComponent" {
 									if self.noteOutlines then
 										local r, g, b, a = love.graphics.getColor()
 										love.graphics.setColor(r/2,g/2,b/2,a)
-										love.graphics.rectangle("line", noteX+noteCulledWidth,noteY+(note:getChannel() == pbC and pbShift or 0), math.max(noteWidth-noteCulledWidth, 0),noteHeight)
+										love.graphics.rectangle("line", noteX+noteCulledWidth,noteY+pbShift, math.max(noteWidth-noteCulledWidth, 0),noteHeight)
 									end
 									
 									-- love.graphics.setColor(1,1,1)
