@@ -169,8 +169,7 @@ class "NotesComponent" {
 							
 						else
 							-- idk if this works correctly
-							local pbV = currentPitchBendValueInTracks[trackID].val
-							local pbC = currentPitchBendValueInTracks[trackID].channel
+							local pbV = currentPitchBendValueInTracks[trackID]
 							local pbShift = -self.pitchBendSemitone*spaceForEachKey * pbV/8192
 							if noteTime <= time then
 							-- if true then
@@ -181,7 +180,7 @@ class "NotesComponent" {
 									if self.noteOutlines then
 										local r, g, b, a = love.graphics.getColor()
 										love.graphics.setColor(r/2,g/2,b/2,a)
-										love.graphics.rectangle("line", noteX+noteCulledWidth,noteY+(note:getChannel() == pbC and pbShift or 0), math.max(noteWidth-noteCulledWidth, 0),noteHeight)
+										love.graphics.rectangle("line", noteX+noteCulledWidth,noteY+pbShift, math.max(noteWidth-noteCulledWidth, 0),noteHeight)
 									end
 								else
 									self.regularNoteSprite:draw(noteX,noteY, noteWidth,noteHeight, screenWidth,screenHeight)
@@ -190,7 +189,7 @@ class "NotesComponent" {
 								-- love.graphics.rectangle("fill", noteX+noteCulledWidth,noteY, noteWidth-noteCulledWidth,noteHeight, noteHeight/2,noteHeight/2)
 								
 								if self.useDefaultTheme then
-									love.graphics.rectangle("fill", noteX+noteCulledWidth,noteY+(note:getChannel() == pbC and pbShift or 0), math.max(noteWidth-noteCulledWidth, 0),noteHeight)
+									love.graphics.rectangle("fill", noteX+noteCulledWidth,noteY+pbShift, math.max(noteWidth-noteCulledWidth, 0),noteHeight)
 									if self.noteOutlines then
 										local r, g, b, a = love.graphics.getColor()
 										love.graphics.setColor(r/2,g/2,b/2,a)

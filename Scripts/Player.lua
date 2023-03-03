@@ -228,10 +228,7 @@ class "Player" {
 				local curPBID = self.currentPitchBendIDInTracks[trackID]
 				local curPB = pitchBends[curPBID]
 				
-				self.currentPitchBendValueInTracks[trackID] = {
-					channel = curPB:getChannel(),
-					val = curPB:getSignedValue()
-				}
+				self.currentPitchBendValueInTracks[trackID] = curPB:getSignedValue()
 			end
 		end
 		
