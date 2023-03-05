@@ -97,6 +97,7 @@ class "DisplayComponentsRenderer" {
 			local percentage = string.format("%3.2f", math.min(100*(player:getTimeManager():getTime()-player:getInitialTime())/(player:getEndTime()-player:getInitialTime()), 100))
 			local renderingProgressMessage = "Rendering: " .. percentage .. "%"
 			
+			love.graphics.draw(self.canvas)
 			love.graphics.print(
 				renderingProgressMessage,
 				(love.graphics.getWidth()  - love.graphics.getFont():getWidth(renderingProgressMessage)) / 2,
@@ -106,6 +107,7 @@ class "DisplayComponentsRenderer" {
 		elseif self.isEncodingVideo then
 			local encodingProgressMessage = "Waiting for encoding..."
 			
+			love.graphics.draw(self.canvas)
 			love.graphics.print(
 				encodingProgressMessage,
 				(love.graphics.getWidth()  - love.graphics.getFont():getWidth(encodingProgressMessage)) / 2,

@@ -114,16 +114,12 @@ class "SettingsMenu" {
 						end
 					),
 					
-					UICheckbox(0.0,0.59, 1.0,0.05, "Vsync", select(3, love.window.getMode()).vsync~=0, 
+					UICheckbox(0.0,0.59, 1.0,0.05, "Vsync", not love.window.getVSync(), 
 						function (obj)
-							local width, height, flags = love.window.getMode()
-							flags.vsync = true
-							love.window.setMode(width, height, flags)
+							love.window.setVSync(1)
 						end,
 						function (obj)
-							local width, height, flags = love.window.getMode()
-							flags.vsync = false
-							love.window.setMode(width, height, flags)
+							love.window.setVSync(0)
 						end
 					)
 				}
